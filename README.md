@@ -20,6 +20,12 @@
 
 - `index.ino`: 이 스케치는 WiFi를 통해 연결된 클라이언트로부터 수신한 메시지를 기반으로 진동 모터를 제어합니다.
 
+## 하드웨어 요구사항
+
+- Arduino : Arduino Uno R4 WiFi
+- LCD 모듈 : [SMG] 1602 I2C 캐릭터LCD (화이트/블루)
+- 진동 모터 모듈 : [YwRobot] 아두이노 진동모터 모듈 [ELB060416]
+
 ## 설치 및 사용 방법
 
 1. `str_convert.py`, `vibration_controller.py`, `run.py` 스크립트를 다운로드하고 파이썬 환경에 설치합니다.
