@@ -2,29 +2,30 @@
 #include <Wire.h> 
 #include <LiquidCrystal_I2C.h>
 
-#include "arduino_secrets.h" 
-char ssid[] = SECRET_SSID;
-char pass[] = SECRET_PASS;
+#include "arduino_secrets.h"  // 아두이노 비밀 정보를 저장하고 있는 헤더 파일
+// WiFi 접속을 위한 SSID와 비밀번호를 선언
+char ssid[] = SECRET_SSID; // WiFi SSID
+char pass[] = SECRET_PASS; // WiFi 비밀번호
 
-int status = WL_IDLE_STATUS;
-WiFiServer server(23);
+int status = WL_IDLE_STATUS; // WiFi 상태를 저장하는 변수
+WiFiServer server(23); // WiFi 서버 객체
 
-const int vibrationPin = 3;
-boolean alreadyConnected = false;
+const int vibrationPin = 3; // 진동 모터가 연결된 핀 번호
+boolean alreadyConnected = false; // 클라이언트가 연결되었는지 여부를 저장하는 변수
 
-LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars and 2 line display
+LiquidCrystal_I2C lcd(0x27,20,4);  // I2C 주소가 0x27인 20x4 LCD를 선언
 
 void setup() {
-  startSerial();
-  checkWifiModule();
-  connectToWifi();
-  startServer();
-  setPinModes();
-  initLCD();
+  startSerial();     // 시리얼 통신 시작
+  checkWifiModule(); // WiFi 모듈 체크
+  connectToWifi();   // WiFi에 연결
+  startServer();     // 서버 시작
+  setPinModes();     // 핀 모드 설정
+  initLCD();         // LCD 초기화
 }
 
 void loop() {
-  checkForClient();
+  checkForClient();  // 클라이언트 확인
 }
 
 void startSerial() {
@@ -93,8 +94,9 @@ void checkForClient() {
   }
 }
 
+// 클라이언트로부터 받은 입력을 처리하는 함수
 void processClientInput(String clientInput) {
-  int value = clientInput.toInt(); // convert the received string to an integer
+  int value = clientInput.toInt();
 
   // 입력받은 0~5 사이의 값을 0~255 로 변환
   if (value >= 0 && value <= 5) {
