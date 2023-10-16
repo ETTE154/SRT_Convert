@@ -68,18 +68,3 @@ pip install -r requirements.txt
 ## 기타
 
 이 프로젝트는 동의대학교 2023년도 하계 계절학기 융복합캡스톤디자인의 프로젝트 결과물 입니다.
-
-
-## Issue
-Traceback (most recent call last):
-  File "/home/raspy/Desktop/Wanted-is-all-you-need-main/BDIA/lib/python3.10/site-packages/streamlit/runtime/scriptrunner/script_runner.py", line 541, in _run_script
-    exec(code, module.__dict__)
-  File "/home/raspy/Desktop/Wanted-is-all-you-need-main/run.py", line 440, in <module>
-    main()
-  File "/home/raspy/Desktop/Wanted-is-all-you-need-main/run.py", line 414, in main
-    create_wanted_template_v2(
-  File "/home/raspy/Desktop/Wanted-is-all-you-need-main/wanted.py", line 273, in create_wanted_template_v2
-    add_experience_section(story, experience_data, styles)
-  File "/home/raspy/Desktop/Wanted-is-all-you-need-main/wanted.py", line 32, in add_experience_section
-    Paragraph(exp["company"], styles["BoldFont_size12"]),
-TypeError: string indices must be integers
